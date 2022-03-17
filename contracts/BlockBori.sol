@@ -18,7 +18,6 @@ interface IERC20ZURI {
 
 
 contract BlockBori is IERC20ZURI {
-    using SafeMath for uint256;
 
     string public constant name = "BoriToken";
     string public constant symbol = "BT";
@@ -35,6 +34,10 @@ contract BlockBori is IERC20ZURI {
     }
 
     event Received(address, uint);
+    event Buy(uint256 amount);
+    event Sell(uint256 amount);
+
+
 
 
     function totalSupply() public override view returns (uint256) {
@@ -47,8 +50,8 @@ contract BlockBori is IERC20ZURI {
 
     function transfer(address receiver, uint256 numTokens) public override returns (bool) {
         require(numTokens <= balances[msg.sender], "Insufficient Funds");
-        balances[msg.sender] = balances[msg.sender].sub(numTokens);
-        balances[receiver] = balances[receiver].add(numTokens);
+        balances[msg.sender] = balances[msg.sender] - numTokens;
+        balances[receiver] = balances[receiver] + numTokens;
         emit Transfer(msg.sender, receiver, numTokens);
         return true;
     }
@@ -67,55 +70,34 @@ contract BlockBori is IERC20ZURI {
         require(numTokens <= balances[owner],"Insufficient Tokens Available");
         require(numTokens <= allowed[owner][msg.sender], "Insufficient allowance");
 
-        balances[owner] = balances[owner].sub(numTokens);
-        allowed[owner][msg.sender] = allowed[owner][msg.sender].sub(numTokens);
-        balances[buyer] = balances[buyer].add(numTokens);
+        balances[owner] = balances[owner] - numTokens;
+        allowed[owner][msg.sender] = allowed[owner][msg.sender] - numTokens;
+        balances[buyer] = balances[buyer] + numTokens;
         emit Transfer(owner, buyer, numTokens);
         return true;
     }
-}
 
-library SafeMath {
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-      assert(b <= a);
-      return a - b;
-    }
+    
 
-    function add(uint256 a, uint256 b) internal pure returns (uint256) {
-      uint256 c = a + b;
-      assert(c >= a);
-      return c;
-    }
-}
-
-contract BlockBoriRetail {
-
-    event Buy(uint256 amount);
-    event Sell(uint256 amount);
-
-
-    IERC20ZURI public token;
-
-    constructor() {
-        token = new BlockBori();
-    }
-
-    function buyToken() external payable  {
-        uint256 amountTobuy = msg.value;
-        uint256 dexBalance = token.balanceOf(address(this));
+    function buyToken() public payable {
+        uint256 amountTobuy = 1000 * 10**decimals ;
+        uint256 dexBalance = balanceOf(tx.origin);
         require(amountTobuy > 0, "You need to send some ether");
         require(amountTobuy <= dexBalance, "Not enough tokens in the reserve");
-        token.transfer(msg.sender, amountTobuy);
+        transfer(msg.sender, amountTobuy);
         emit Buy(amountTobuy);
     }
 
     function sell(uint256 amount) public {
         require(amount > 0, "You need to sell at least some tokens");
-        uint256 allowance = token.allowance(msg.sender, address(this));
-        require(allowance >= amount, "Check the token allowance");
-        token.transferFrom(msg.sender, address(this), amount);
+        uint256 allow = allowance(msg.sender, tx.origin);
+        require(allow >= amount, "Check the token allowance");
+        transferFrom(msg.sender, tx.origin, amount);
         payable(msg.sender).transfer(amount);
         emit Sell(amount);
     }
 
+    receive() external payable{
+        buyToken();
+    }
 }
