@@ -7,7 +7,7 @@ const FormData = require("form-data");
 const pinFileToIPFS = async () => {
   const url = `https://api.pinata.cloud/pinning/pinFileToIPFS`;
   let data = new FormData();
-  data.append("file", fs.createReadStream("./unnamed.png"));
+  data.append("file", fs.createReadStream("./unnamed.jpeg"));
   const res = await axios.post(url, data, {
     maxContentLength: "Infinity", 
     headers: {
@@ -23,5 +23,7 @@ pinFileToIPFS();
 // {
 //     "name":"bori_unnamed1",
 //     "hash": "QmbMBQfgrWXe2ChycDyT7zBgNnGwB3U1NqYgiyqNVag3wY", 
+// QmWQybXJbTJQtRsUdLTPaPGuuoB4vkToPvvYr8Y5dE23Qa
+// QmafYPE2RVwBGUj6P9ixi2xMoYirToRPn885UF5de6zEyF
 //     "description": "Tryin1"
 //   }
