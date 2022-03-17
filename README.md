@@ -1,6 +1,7 @@
 # ERC20
 
-IPFS links: - https://ipfs.io/ipfs/QmSAyGjMEKVjW4CWj7kCQr5bSBPFug3C4NVMrBuVYtFYUM/
+IPFS links: 
+            - https://ipfs.io/ipfs/QmSAyGjMEKVjW4CWj7kCQr5bSBPFug3C4NVMrBuVYtFYUM/
             - https://ipfs.io/ipfs/QmQitVFwvRhJnFnEqegDFWcpgLMfBDRibsB8oRgi92X2xG/
 
 ERC20 contract address: https://rinkeby.etherscan.io/address/0x0458613211400294c7b94df9887a72bc302bb7f4#code
