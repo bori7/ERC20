@@ -20,13 +20,17 @@ contract BoriToks is ERC20, Ownable {
         _mint(to, amount);
     }
 
-    function buyToken(address receiver) external payable{
-        uint256 amountTobuy = gasprice * gaslimit * rate; // using the gas fee
+    function buyToken(address receiver) public payable{
+        // uint256 amountTobuy = gasprice * gaslimit * rate; // using the gas fee
 
-        // require(msg.value >= 0, "You need to send some ether"); // when we have real eth sent.. 
-        // uint256 amountTobuy = msg.value * rate * 10**decimals(); // for testnet, no eth sent i.e. 0 ETH
+        require(msg.value > 0, "You need to send some ether"); // when we have real eth sent.. 
+        uint256 amountTobuy = msg.value * rate; // for testnet, no eth sent i.e. 0 ETH
         
         mint(receiver, amountTobuy);
         emit Buy(amountTobuy);
+    }
+
+    receive() external payable {
+        buyToken(msg.sender);
     }
 }
