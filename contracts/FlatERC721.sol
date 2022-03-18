@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @dev Interface of the ERC165 standard, as defined in the
@@ -28,9 +28,10 @@ interface IERC165 {
 
 // File: @openzeppelin/contracts/token/ERC721/IERC721.sol
 
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/IERC721.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @dev Required interface of an ERC721 compliant contract.
@@ -174,7 +175,7 @@ interface IERC721 is IERC165 {
 
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/IERC721Receiver.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @title ERC721 token receiver interface
@@ -204,7 +205,7 @@ interface IERC721Receiver {
 
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/extensions/IERC721Metadata.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @title ERC-721 Non-Fungible Token Standard, optional metadata extension
@@ -457,7 +458,7 @@ library Address {
 
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @dev Provides information about the current execution context, including the
@@ -484,7 +485,7 @@ abstract contract Context {
 
 // OpenZeppelin Contracts v4.4.1 (utils/Strings.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @dev String operations.
@@ -554,7 +555,7 @@ library Strings {
 
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/ERC165.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @dev Implementation of the {IERC165} interface.
@@ -584,7 +585,7 @@ abstract contract ERC165 is IERC165 {
 
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC721/ERC721.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 
 
@@ -1032,7 +1033,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
 
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/extensions/ERC721URIStorage.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @dev ERC721 token with storage based token URI management.
@@ -1100,7 +1101,7 @@ abstract contract ERC721URIStorage is ERC721 {
 
 // OpenZeppelin Contracts v4.4.1 (access/Ownable.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @dev Contract module which provides a basic access control mechanism, where
@@ -1177,7 +1178,7 @@ abstract contract Ownable is Context {
 
 // OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 /**
  * @title Counters
