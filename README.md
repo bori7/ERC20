@@ -11,6 +11,7 @@ ERC20 contract address: https://rinkeby.etherscan.io/address/0x638ab8afdd7a9e35d
 ERC721 contract address: https://rinkeby.etherscan.io/address/0x9ffd23a7f601b85a3d8676297aa4afb251d8bd1c#code
 
 metadata: 
+
             - {
                 "name" : "BoriLol",
 
