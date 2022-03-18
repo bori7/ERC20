@@ -11,20 +11,20 @@ ERC20 contract address: https://rinkeby.etherscan.io/address/0x638ab8afdd7a9e35d
 ERC721 contract address: https://rinkeby.etherscan.io/address/0x9ffd23a7f601b85a3d8676297aa4afb251d8bd1c#code
 
 metadata: 
-- {
-    "name" : "BoriLol",
+            - {
+                "name" : "BoriLol",
 
-    "image" : "https://ipfs.io/ipfs/QmbMBQfgrWXe2ChycDyT7zBgNnGwB3U1NqYgiyqNVag3wY/",
+                "image" : "https://ipfs.io/ipfs/QmbMBQfgrWXe2ChycDyT7zBgNnGwB3U1NqYgiyqNVag3wY/",
 
-    "description": "First NFT"
+                "description": "First NFT"
 
-}
+             }
 
-- {
-    "name" : "BoriPers",
+            -{
+                "name" : "BoriPers",
 
-    "image" : "https://ipfs.io/ipfs/QmafYPE2RVwBGUj6P9ixi2xMoYirToRPn885UF5de6zEyF/",
+                "image" : "https://ipfs.io/ipfs/QmafYPE2RVwBGUj6P9ixi2xMoYirToRPn885UF5de6zEyF/",
 
-    "description": "Second NFT"
+                "description": "Second NFT"
 
-}
+            }
